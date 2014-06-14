@@ -2,15 +2,26 @@
  * Coin bottle opener
  * Designed by Niek Blankers <niek@niekproductions.com>
  * 
- * For use with a 50 euro cent coin
+ * Set fill to 90-100% for best results.
  * Insert coin during printing!
  * 
  */
 include <drawBitmap.scad>;
 
-coinDiameter = 24.5;
-coinThickness = 2.4;
-coinOffset = 5;
+
+/**
+ * 50 euro cent coin:
+ * Diameter: 24.5
+ * Thickness: 2.5
+ * 
+ * 5 euro cent coin:
+ * Diameter: 21.5
+ * Thickness: 1.9
+ */
+
+coinDiameter = 21.5;
+coinThickness = 1.9;
+coinOffset = 6;
 coinAngle = 0;
 
 width=40;
@@ -30,6 +41,8 @@ frontOpeningWidth=openingWidth+5;
 
 backWidth = 15;
 frontLength = openingLength+edgeWidth+coinDiameter/2-10;
+
+chainHole = backWidth-4; //Keychain hole diameter
 
 // For the Bitmap
 bits=[
@@ -74,11 +87,14 @@ module opener(){
 			cylinder(h = coinThickness, d = coinDiameter, center = true);
 		}
 
+		translate([width/2,length-backWidth,height/2]) scale([1.0,0.8,1.0]) cylinder(h=height+1, d=chainHole, center=true);
+
 	}	
 
 }
 
 opener();
+
 
 
 module roundedRect(size, radius) { // from http://www.thingiverse.com/thing:9347/#comments
