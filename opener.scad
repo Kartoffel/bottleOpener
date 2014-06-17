@@ -165,7 +165,7 @@ module roundedRect(size, radius) { // from http://www.thingiverse.com/thing:9347
  *
  * @param	array		bits			Bitmap array
  * @param	decimal	cubeSpacing	
- * @param	decimal	cubeSize
+ * @param	array		cubeSize
  *
  * Example:
  *
@@ -176,7 +176,7 @@ module roundedRect(size, radius) { // from http://www.thingiverse.com/thing:9347
 	[1,0,0,1,0,1,0,1,0,0,0,1,0,1,0],
 	[1,0,0,1,0,1,0,1,1,1,0,1,0,0,1]
 	];
-	cubeSize = 4;
+	cubeSize = [4,4,4];
 	cubeSpacing = 5;
 
 	drawBitmap(bits, cubeSpacing, cubeSize);
